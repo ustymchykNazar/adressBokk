@@ -1,0 +1,23 @@
+<nav class="sidebar">
+  <div class="filter">
+    <input type="text" [formControl]="filter">
+  </div>
+  <app-list
+    [active]="activeUser" 
+    [users]="filter.value ? filteredUsers : users" 
+    (onActive)="setActive($event)"></app-list>
+</nav>
+<main class="info">
+  <app-form 
+    *ngIf="!viewMode" 
+    (onAdd)="add($event)"
+    (onUpdate)="update($event)"
+    [user]="activeUser"></app-form>
+  <app-view 
+    *ngIf="viewMode" 
+    (onDel)="del($event)" 
+    (onCancel)="cancel($event)" 
+    (onEdit)="edit($event)"
+    (onNew)="create($event)"
+    [user]="activeUser"></app-view>
+</main>

@@ -1,0 +1,7 @@
+<ul class="list">
+  <li 
+    class="item" 
+    *ngFor="let user of users"
+    [ngClass]="{'active': user.id === active.id}"
+    (click)="setActive(user)">{{user.firstName}} {{user.lastName}}</li>
+</ul>

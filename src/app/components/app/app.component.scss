@@ -1,0 +1,13 @@
+:host {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 16px;
+  
+  width: 800px;
+  margin: 20px auto 0 auto;
+}
+
+.sidebar {
+  padding-right: 16px;
+  border-right: 1px solid silver;
+}

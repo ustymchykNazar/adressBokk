@@ -1,0 +1,19 @@
+<button (click)="create()">New personal contact</button>
+
+<h2 class="title">{{user.firstName}} {{user.lastName}}</h2>
+<ul class="list">
+  <li>
+    <p class="label">Name</p>
+    <p class="value">{{user.firstName}}</p>
+  </li>
+  <li>
+    <p class="label">Date of Birth</p>
+    <p class="value">{{user.birth}}</p>
+  </li>
+</ul>
+
+<div class="controls">
+  <button class="btn btn_green" (click)="edit()">Edit/view</button>
+  <button class="btn-del controls__del" (click)="del()"></button>
+  <button class="btn btn_grey controls__cancel" (click)="cancel()">Cancel</button>
+</div>

@@ -1,0 +1,93 @@
+<h1 class="title">New Personal Contact</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="grid row">
+    <label class="label">
+      First Name
+      <input 
+        type="text" 
+        class="input" 
+        formControlName="firstName" 
+        title="min 2, max 10, only alphabetic">
+    </label>
+    <label class="label">
+      Middle Name
+      <input 
+        type="text" 
+        class="input" 
+        formControlName="middleName"
+        title="min 2, max 10, only alphabetic">
+    </label>
+    <label class="label">
+      Last Name
+      <input 
+        type="text" 
+        class="input" 
+        formControlName="lastName"
+        title="min 2, max 10, only alphabetic">
+    </label>
+  </div>
+
+  <label class="label row">
+    Date of Birth
+    <input 
+      type="date" 
+      class="input" 
+      formControlName="birth" 
+      title="required">
+  </label>
+
+  <div formArrayName="phone" class="row">
+    <label class="label">
+      Phone Number
+    </label>
+
+    <div class="grid" *ngFor="let phone of phone.controls; let i = index">
+      <ng-container [formGroupName]="i">
+        <input 
+          type="text" 
+          placeholder="type, eg. Mobile" 
+          class="input" 
+          formControlName="name"
+          title="min 2, max 10, only alphabetic">
+        <input 
+          type="tel" 
+          placeholder="Enter Phone Number" 
+          formControlName="value"
+          title="min 2, max 10, allowed symbols: 0-9,()+- ">
+      </ng-container>
+      <button 
+        type="button" 
+        class="btn" 
+        (click)="addPhone()" 
+        *ngIf="i == 0">Add another phone</button>
+      <button 
+        type="button"
+        class="btn-del" 
+        (click)="delPhone(i)" 
+        *ngIf="i != 0"></button>
+    </div>
+  </div>
+
+  <div formArrayName="email" class="row">
+    <label class="label">
+      Email Address
+    </label>
+
+    <div *ngFor="let control of email.controls; let i = index" class="grid">
+      <input type="text" class="input grid__wide-item" [formControlName]="i">
+      <button 
+        type="button" 
+        class="btn" 
+        (click)="addEmail()" 
+        *ngIf="i == 0"
+        title="required, valid email">Add Another email</button>
+      <button 
+        type="button" 
+        class="btn-del" 
+        *ngIf="i != 0" 
+        (click)="delEmail(i)"></button>
+    </div>
+  </div>
+
+  <button class="btn btn_green" [disabled]="!form.valid">Save</button>
+</form>
