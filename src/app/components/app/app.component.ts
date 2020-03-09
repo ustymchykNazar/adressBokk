@@ -64,6 +64,7 @@ export class AppComponent implements OnInit {
         res => {
           this.users = res;
           this.viewMode = true;
+          this.activeUser = user;
         },
         err => { },
         () => this.preloader = false
