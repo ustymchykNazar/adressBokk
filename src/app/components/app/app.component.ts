@@ -77,7 +77,11 @@ export class AppComponent implements OnInit {
     this._bd
       .update(user)
       .subscribe(
-        res => this.users = res,
+        res => {
+          this.users = res;
+          this.viewMode = true;
+          this.activeUser = user;
+        },
         err => { },
         () => this.preloader = false
       )

@@ -26,7 +26,7 @@ export class BdService {
             value: '+222'
           },
         ],
-        email: ['some@email.com']
+        email: ['some@email.com', 'some@email.com']
       },
       {
         id: '_asda',
@@ -44,7 +44,7 @@ export class BdService {
             value: '+444'
           },
         ],
-        email: ['some@email.com']
+        email: ['some@email.com', 'some@email.com']
       },
       {
         id: '_asdaqwe',
@@ -62,7 +62,7 @@ export class BdService {
             value: '+666'
           },
         ],
-        email: ['some@email.com']
+        email: ['some@email.com', 'some@email.com']
       },
     ];
   }

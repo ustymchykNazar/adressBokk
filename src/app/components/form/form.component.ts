@@ -63,7 +63,13 @@ export class FormComponent implements OnInit{
 
   ngOnInit() {
     if(this.user.id) {
-      this.form.patchValue(this.user);
+      for(let i = 1; i < this.user.email.length; i++ ) {
+        this.addEmail();
+      }
+      for(let i = 1; i < this.user.phone.length; i++ ) {
+        this.addPhone();
+      }
+      this.form.patchValue(this.user);      
     }
   }
 
@@ -105,6 +111,7 @@ export class FormComponent implements OnInit{
       id.setValue(this.getId().toString());
       this.onAdd.emit(this.form.value);
     } else {
+      console.log('update')
       this.onUpdate.emit(this.form.value);
     }
   }
