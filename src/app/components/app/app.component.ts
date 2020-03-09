@@ -61,7 +61,10 @@ export class AppComponent implements OnInit {
     this._bd
       .add(user)
       .subscribe(
-        res => this.users = res,
+        res => {
+          this.users = res;
+          this.viewMode = true;
+        },
         err => { },
         () => this.preloader = false
       )
